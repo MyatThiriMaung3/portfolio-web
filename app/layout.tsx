@@ -48,7 +48,7 @@ export default function RootLayout({
                 </a>
 
                 <a
-                  href="https://github.com/yourusername"
+                  href="https://github.com/MyatThiriMaung3"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
@@ -63,7 +63,7 @@ export default function RootLayout({
                 </a>
 
                 <a
-                  href="https://linkedin.com/in/yourusername"
+                  href="www.linkedin.com/in/myat-thiri-maung-137216230"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
