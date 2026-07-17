@@ -63,7 +63,7 @@ export default function RootLayout({
                 </a>
 
                 <a
-                  href="www.linkedin.com/in/myat-thiri-maung-137216230"
+                  href="https://www.linkedin.com/in/myat-thiri-maung-137216230/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
