@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { getAllProjects, getProjectBySlug } from '@/lib/projects';
 import VideoPlayer from '@/components/VideoPlayer';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import remarkGfm from 'remark-gfm';
 
 export async function generateStaticParams() {
   return getAllProjects().map((p) => ({ slug: p.slug }));
@@ -55,8 +56,17 @@ export default async function ProjectPage({
         </RevealOnScroll>
       )}
 
+      
+
       <RevealOnScroll className="prose prose-neutral dark:prose-invert max-w-none prose-headings:font-bold prose-a:text-accent">
-        <MDXRemote source={project.content} />
+        <MDXRemote
+          source={project.content}
+          options={{
+            mdxOptions: {
+              remarkPlugins: [remarkGfm],
+            },
+          }}
+        />
       </RevealOnScroll>
     </article>
   );

@@ -5,8 +5,14 @@ function getYouTubeId(url: string): string | null {
   return match ? match[1] : null;
 }
 
+function getGoogleDriveId(url: string): string | null {
+  const match = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+  return match ? match[1] : null;
+}
+
 export default function VideoPlayer({ src }: { src: string }) {
   const ytId = getYouTubeId(src);
+  const driveId = getGoogleDriveId(src);
 
   if (ytId) {
     return (
@@ -16,6 +22,21 @@ export default function VideoPlayer({ src }: { src: string }) {
           title="Project demo video"
           className="absolute inset-0 w-full h-full"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          loading="lazy"
+        />
+      </div>
+    );
+  }
+
+  if (driveId) {
+    return (
+      <div className="relative aspect-video rounded-lg overflow-hidden border border-[var(--border)]">
+        <iframe
+          src={`https://drive.google.com/file/d/${driveId}/preview`}
+          title="Project demo video"
+          className="absolute inset-0 w-full h-full"
+          allow="autoplay"
           allowFullScreen
           loading="lazy"
         />

@@ -28,14 +28,14 @@ Ton Duc Thang University
 This project implements a complete handwritten OCR web application that converts handwritten English text images into editable digital text. The system uses a two-model pipeline combining word detection and word recognition with post-processing spelling correction.
 
 ### Key Features
-- ✅ Single and multiple image upload support
-- ✅ Automatic word detection in handwritten documents
-- ✅ Handwritten text recognition using CNN-BiLSTM architecture
-- ✅ Spelling correction with SymSpell algorithm
-- ✅ Editable text interface
-- ✅ Copy to clipboard functionality
-- ✅ Download results as .txt files
-- ✅ Responsive React-based UI
+- Single and multiple image upload support
+- Automatic word detection in handwritten documents
+- Handwritten text recognition using CNN-BiLSTM architecture
+- Spelling correction with SymSpell algorithm
+- Editable text interface
+- Copy to clipboard functionality
+- Download results as .txt files
+- Responsive React-based UI
 
 ## System Architecture
 
@@ -68,7 +68,7 @@ This project implements a complete handwritten OCR web application that converts
 | Aspect | Base Model | Improved Model |
 |--------|------------|----------------|
 | Parameters | ~424K | ~1.67M |
-| Batch Normalization | ❌ | ✅ |
+| Batch Normalization | No | Yes |
 | Data Augmentation | Limited | Enhanced |
 | Learning Rate | Fixed | Scheduled |
 | Character Accuracy | ~74% | **83.65%** |
@@ -197,9 +197,9 @@ Response:
 
 ### Spelling Correction Rules
 The system excludes certain words from spell-checking to preserve accuracy:
-- ✅ Uppercase words (e.g., "OCR", "CNN")
-- ✅ Words with initial capital letters (e.g., proper nouns)
-- ✅ Words shorter than 3 characters
+- Uppercase words (e.g., "OCR", "CNN")
+- Words with initial capital letters (e.g., proper nouns)
+- Words shorter than 3 characters
 
 ## Key Achievements
 

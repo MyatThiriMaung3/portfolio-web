@@ -53,3 +53,35 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.prose thead {
+  background-color: var(--card);
+}
+
+.prose th {
+  font-weight: 700;
+  text-align: left;
+  padding: 0.65rem 1rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.prose td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.prose tbody tr:hover {
+  background-color: var(--card);
+}
