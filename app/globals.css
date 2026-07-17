@@ -1,26 +1,55 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-saira), sans-serif;
+  --color-accent: #DA3131;
+  --color-ink: #000000;
+  --color-paper: #FFFFFF;
+  --color-mist: #EAEAEA;
+  --color-ash: #626262;
+  --color-stone: #BABABA;
+  --color-charcoal: #282828;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --bg: #ffffff;
+  --fg: #000000;
+  --muted: #626262;
+  --border: #eaeaea;
+  --card: #eaeaea;
+}
+
+.dark {
+  --bg: #000000;
+  --fg: #ffffff;
+  --muted: #bababa;
+  --border: #282828;
+  --card: #282828;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::selection {
+  background-color: #da3131;
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

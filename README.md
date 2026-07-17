@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Starter
 
-## Getting Started
+Next.js 14 (App Router) + Tailwind + MDX content, built around your palette
+(`#EAEAEA #FFFFFF #000000 #BABABA #DA3131 #626262 #282828`) and Saira Condensed.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Add a new project (automated)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run new-project
+```
 
-## Learn More
+It asks for: title, GitHub repo URL, video URL, tags, cover image. It then fetches
+the repo's `README.md` automatically and lets you choose:
 
-To learn more about Next.js, take a look at the following resources:
+1. Use the README as-is
+2. Write your own description from scratch
+3. README + your own extra section on top
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+It writes `content/projects/<slug>.mdx` — open that file afterward to fine-tune
+wording, swap in real image paths, etc. This is a **local script**, so nothing
+gets pushed anywhere until you `git commit` / `git push` yourself — safe to
+run as many times as you like.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Add images
 
-## Deploy on Vercel
+Drop images in `public/images/projects/<slug>/` and reference them as
+`/images/projects/<slug>/screenshot.png` in a project's frontmatter (`cover`
+or the `images` array).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Add your resume
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Place your PDF at `public/resume.pdf` — both the navbar "RESUME" button and
+the CV page "DOWNLOAD PDF" button already link there.
+
+## Customize
+
+- Colors: `tailwind.config.ts`
+- Fonts: already wired to Saira Condensed in `app/layout.tsx`
+- Nav links / name: `components/Navbar.tsx`
+- Hero copy, contact email: `app/page.tsx`
+- CV content: `app/cv/page.tsx`
+
+## Deploy
+
+1. `git init && git add . && git commit -m "init"` then push to a GitHub repo.
+2. Import the repo in [Vercel](https://vercel.com/new) — it auto-detects Next.js.
+3. Project Settings → Domains → attach your custom domain.
+4. Every push to `main` auto-deploys.
+
+## Notes
+
+- Video component auto-detects YouTube links (`youtube.com` / `youtu.be`) and
+  embeds them; any other URL is rendered as a native `<video>` tag, so a
+  direct-hosted file (Cloudinary, Vercel Blob, etc.) works too.
+- Avoid committing large video files directly into this repo — host them
+  externally and just reference the URL in the project's frontmatter.
