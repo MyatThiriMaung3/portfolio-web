@@ -95,7 +95,7 @@ export default function CVPage() {
           <p className="text-[var(--muted)]">
             Ton Duc Thang University · Expected Graduation November 2026
           </p>
-          <p className="text-[var(--muted)]">Accumulated GPA of semesters - 8.76/10</p>
+          <p className="text-[var(--muted)]">Accumulated GPA of semesters - 8.49/10</p>
         </div>
 
         <div>
